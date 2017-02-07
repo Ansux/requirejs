@@ -45,21 +45,6 @@ gulp.task('eslint', function () {
 gulp.task('rjs', ['eslint'], function () {
   rjs.optimize({
     'baseUrl': './src',
-    'paths': {
-      'es6': '../static/js/requirejs/es6',
-      'babel': '../static/js/requirejs/babel-5.8.34.min'
-    },
-    'exclude': ['babel'],
-    'pragmasOnSave': {
-      'excludeBabel': true
-    },
-    config: {
-      es6: {
-        resolveModuleSource: function (source) {
-          return 'es6!' + source
-        }
-      }
-    },
     'removeCombined': true,
     'name': 'app',
     'out': './dist/js/app.js'
