@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Angular</title>
+</head>
+
+<body>
+  <div class="navbar">
+    <ul class="nav navbar-nav">
+      <li data-id="home"><a ui-sref="home">首页</a>
+      </li>
+      <li data-id="music"><a ui-sref="music">音乐</a>
+      </li>
+      <li data-id="blog"><a ui-sref="blog">博客</a>
+      </li>
+    </ul>
+  </div>
+  <div class="container" ui-view></div>
+  <script src="./js/libs.js"></script>
+  <script src="./js/require.min.js" data-main="./js/app.js"></script>
+</body>
+
+</html>
