@@ -4,20 +4,18 @@
 <head>
   <meta charset="UTF-8">
   <title>Angular</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="stylesheet" href="./css/libs.css">
+  <link rel="stylesheet" href="./css/app.css">
 </head>
 
 <body>
-  <div class="navbar">
-    <ul class="nav navbar-nav">
-      <li data-id="home"><a ui-sref="home">首页</a>
-      </li>
-      <li data-id="music"><a ui-sref="music">音乐</a>
-      </li>
-      <li data-id="blog"><a ui-sref="blog">博客</a>
-      </li>
-    </ul>
+  <div class="side" ng-controller="ctrl.side" ng-include="'view/public/side.html'"></div>
+  <div class="wrap">
+    <div class="navbar navbar-default" ng-include="'view/public/navbar.html'"></div>
+    <div class="container" ui-view></div>
   </div>
-  <div class="container" ui-view></div>
+  <script src="./js/ie.js"></script>
   <script src="./js/libs.js"></script>
   <script src="./js/require.min.js" data-main="./js/app.js"></script>
 </body>

@@ -3,3 +3,16 @@ body {
     width: 100px;
   }
 }
+
+.clearfix {
+  &::after {
+    content: ' ';
+    width: 100%;
+    display: block;
+    clear: both;
+  }
+}
+
+ul {
+  list-style: none;
+}

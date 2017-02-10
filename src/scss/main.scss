@@ -1,4 +1,13 @@
-.container {
-  width: 970px;
-  margin: 0 auto;
+@import './mixin.scss';
+@import './side.scss';
+
+body {
+  font-family: '微软雅黑'
+}
+
+.wrap {
+  margin-left: 255px;
+  .navbar {
+    border-radius: 0;
+  }
 }

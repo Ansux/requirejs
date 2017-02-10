@@ -1,0 +1,43 @@
+
+.side {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  background: #efefef;
+  width: 250px;
+  // reset bootstrap style
+  .logo {
+    height: 60px;
+    padding: 0 15px;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 60px;
+    background-color: #999;
+  }
+  .section {
+    margin: 10px;
+    fieldset {
+      border: solid 1px #999;
+      margin: 5px;
+      padding: 5px 5px 10px 5px;
+      legend {
+        font-size: 14px;
+        font-weight: 700;
+        color: #999;
+        margin: 0 5px;
+        padding: 0 5px;
+        display: block;
+        width: auto;
+        border: none;
+      }
+    }
+    .cbs {
+      .checkbox-inline,.radio-inline {
+        margin-left: 0px;
+        margin-right: 20px;
+        margin-bottom: 5px;
+      }
+    }
+  }
+}

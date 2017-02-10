@@ -8,25 +8,8 @@ var gulp = require('gulp'),
   autoprefixer = require('gulp-autoprefixer'),
   eslint = require('gulp-eslint'),
   gulpSequence = require('gulp-sequence'),
-  browserSync = require('browser-sync').create()
-
-// 文件列表
-var files = {
-  dist: ['dist/*.*', 'dist/**/*.*'],
-  index: 'index.html',
-  js: ['src/*.js', 'src/**/*.js'],
-  scss: 'src/scss/*.scss',
-  view: 'src/modules/**/*.html',
-  libs: {
-    js: [
-      'static/js/angular.min.js',
-      'static/js/angular-*.js'
-    ],
-    css: 'static/css/*.css'
-  },
-  images: 'static/images/*.*',
-  fonts: 'static/fonts'
-}
+  browserSync = require('browser-sync').create(),
+  files = require('./config/index')
 
 // 删除dist目录
 gulp.task('clean', function () {
@@ -53,7 +36,7 @@ gulp.task('rjs', ['eslint'], function () {
 
 // scss
 gulp.task('scss', function () {
-  gulp.src(files.scss)
+  gulp.src('src/scss/main.scss')
     .pipe(sass())
     .pipe(autoprefixer({
       browsers: ['last 2 versions'],
@@ -67,9 +50,13 @@ gulp.task('scss', function () {
 /**************** 静态资源处理 ************/
 // 打包库文件
 gulp.task('libJS', function () {
-  gulp.src(files.libs.js)
+  gulp.src(files.libs.js.ng)
     .pipe(concat('libs.js'))
     .pipe(gulp.dest('./dist/js/'))
+
+  gulp.src(files.libs.js.ie)
+    .pipe(concat('ie.js'))
+    .pipe(gulp.dest('./dist/js'))
 
   gulp.src('static/js/requirejs/require.min.js')
     .pipe(gulp.dest('./dist/js/'))
@@ -79,6 +66,7 @@ gulp.task('libJS', function () {
 gulp.task('libCSS', function () {
   gulp.src(files.libs.css)
     .pipe(concat('libs.css'))
+    .pipe(gulp.dest('./dist/css'))
 })
 
 // 图片处理
@@ -99,7 +87,7 @@ gulp.task('fonts', function () {
     .pipe(gulp.dest('./dist/fonts/'))
 })
 
-// index
+// 首页
 gulp.task('index', function () {
   gulp.src(files.index)
     .pipe(gulp.dest('dist'))
@@ -120,15 +108,16 @@ gulp.task('browserSync', function () {
   })
 })
 
-// watch
+// 实时监听
 gulp.task('watch', ['browserSync'], function () {
   gulp.watch(files.js, ['rjs'])
+  gulp.watch(files.scss, ['scss'])
   gulp.watch(files.view, ['view'])
   gulp.watch('index.html', ['index'])
 })
 
-// build
+// 构建任务
 gulp.task('build', gulpSequence('clean', ['libJS', 'libCSS', 'imageMin', 'fonts', 'rjs', 'scss', 'index', 'view']))
 
-// default
+// 默认任务
 gulp.task('default', ['watch'])

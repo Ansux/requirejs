@@ -37,6 +37,7 @@
     "require": true,
     "define": true,
     "console": true,
-    "document": true
+    "document": true,
+    "module": true
   }
 }
