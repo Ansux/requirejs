@@ -28,6 +28,10 @@ gulp.task('eslint', function () {
 gulp.task('rjs', ['eslint'], function () {
   rjs.optimize({
     'baseUrl': './src',
+    paths: {
+      text: '../static/js/requirejs/text',
+      json: '../static/js/requirejs/json',
+    },
     'removeCombined': true,
     'name': 'app',
     'out': './dist/js/app.js'

@@ -1,0 +1,52 @@
+.cases-wraper {
+  margin-left: -15px;
+  .item {
+    position: relative;
+    font-size: 0;
+    padding: 10px;
+    padding-left: 40px;
+    line-height: 2;
+    margin-bottom: 15px;
+    border: solid 2px #eee;
+    span {
+      font-size: 14px;
+      display: inline-block;
+      width: 20%;
+    }
+    .item-checked {
+      position: absolute;
+      left: 10px;
+      top: 14px;
+    }
+    .item-toggle{
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      border-top: solid 2px #eee;
+      border-left: solid 2px #eee;
+      padding: 2px 8px;
+      .glyphicon{
+        font-size: 12px;
+        color: #ccc;
+      }
+    }
+    .link-btns {
+      padding: 10px 0;
+      font-size: 13px;
+      a {
+        display: inline-block;
+        border: solid 1px #999;
+        padding: 0px 8px;
+        margin-right: 20px;
+        color: #666;
+        border-radius: 5px;
+        text-decoration: none;
+        &:hover {
+          background-color: #666;
+          border-color: #666;
+          color: #fff;
+        }
+      }
+    }
+  }
+}

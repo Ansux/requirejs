@@ -1,10 +1,23 @@
 <div class="container-fluid">
+  <a class="navbar-brand"><span class="glyphicon glyphicon-th-large"></span> 病例中心</a>
+  <ul class="nav navbar-nav">
+    <li data-id="home"><a ui-sref="home"><span class="glyphicon glyphicon-plus"></span> 新建病例</a>
+    </li>
+  </ul>
+  <div class="personal pull-right">
+    <a class="avator">
+      <span class="glyphicon glyphicon-user"></span>
+      <span class="caret"></span>
+    </a>
+  </div>
   <ul class="nav navbar-nav pull-right">
-    <li class="active" data-id="home"><a ui-sref="home">首页</a>
+    <li ui-sref-active="active"><a ui-sref="cases({type:'all'})">全部 ({{casesCount.all}})</a>
     </li>
-    <li data-id="music"><a ui-sref="music">音乐</a>
+    <li ui-sref-active="active"><a ui-sref="cases({type:'unCheck'})">未检查 ({{casesCount.unCheck}})</a>
     </li>
-    <li data-id="blog"><a ui-sref="blog">博客</a>
+    <li ui-sref-active="active"><a ui-sref="cases({type:'unDiagnose'})">未诊断 ({{casesCount.unDiagnose}})</a>
+    </li>
+    <li ui-sref-active="active"><a ui-sref="cases({type:'isDiagnose'})">已诊断 ({{casesCount.isDiagnose}})</a>
     </li>
   </ul>
 </div>

@@ -9,11 +9,11 @@
   <link rel="stylesheet" href="./css/app.css">
 </head>
 
-<body>
+<body ng-controller="ctrl">
   <div class="side" ng-controller="ctrl.side" ng-include="'view/public/side.html'"></div>
   <div class="wrap">
-    <div class="navbar navbar-default" ng-include="'view/public/navbar.html'"></div>
-    <div class="container" ui-view></div>
+    <div class="navbar navbar-default navbar-fixed-top" ng-controller="ctrl.navbar" ng-include="'view/public/navbar.html'"></div>
+    <div class="container-fluid container-view" ui-view></div>
   </div>
   <script src="./js/ie.js"></script>
   <script src="./js/libs.js"></script>

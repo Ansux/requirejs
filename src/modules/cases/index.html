@@ -1,0 +1,52 @@
+<div class="cases-wraper">
+  <div class="item" ng-repeat="item in cases" ng-click="item.isOpen=!item.isOpen">
+    <div class="item-checked">
+      <input type="checkbox" ng-checked="item.isChecked" ng-model="item.isChecked">
+    </div>
+    <div class="row-1">
+      <span>姓名: {{item.Name}}</span>
+      <span>年龄: {{item.Age}}{{item.AgeUnit}}</span>
+      <span>性别: {{item.Sex}}</span>
+      <span>申请号: {{item.AppliNO}}</span>
+      <span>检查项目: {{item.ExamGroupName}}</span>
+    </div>
+    <div class="row-2">
+      <span>来访时间: {{item.ComeDate|limitTo:10}}</span>
+      <span>门诊号: {{item.PatientNum}}</span>
+      <span>申请科室: {{item.DepartName}}</span>
+      <span>诊断结果: {{item.diagnosResult}}</span>
+      <span>上传时间: {{item.UploadDate|limitTo:10}}</span>
+    </div>
+    <div class="row-3 link-btns" ng-class="{true: 'show', false: 'hide'}[item.isOpen]">
+      <a href="">收藏</a>
+      <a href="">历史病历</a>
+      <a href="">查看报告</a>
+      <a href="">设备模式</a>
+      <a href="">查看报告</a>
+      <a href="">病人资料</a>
+      <a href="">诊断</a>
+    </div>
+    <div class="item-toggle">
+      <span class="glyphicon" ng-class="{false:'glyphicon-chevron-down', true: 'glyphicon-chevron-up'}[item.isOpen]"></span>
+    </div>
+  </div>
+  <nav aria-label="Page navigation">
+    <ul class="pagination">
+      <li>
+        <a href="#" aria-label="Previous">
+          <span aria-hidden="true">&laquo;</span>
+        </a>
+      </li>
+      <li class="active"><a href="#">1</a></li>
+      <li><a href="#">2</a></li>
+      <li><a href="#">3</a></li>
+      <li><a href="#">4</a></li>
+      <li><a href="#">5</a></li>
+      <li>
+        <a href="#" aria-label="Next">
+          <span aria-hidden="true">&raquo;</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+</div>

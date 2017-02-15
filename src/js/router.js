@@ -2,13 +2,13 @@
 
 define([], function () {
   return ['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
-    $urlRouterProvider.otherwise('/')
+    $urlRouterProvider.otherwise('/cases/all')
 
     $stateProvider
-      .state('home', {
-        url: '/',
-        controller: 'ctrl.home',
-        templateUrl: 'view/home/index.html'
+      .state('cases', {
+        url: '/cases/:type',
+        controller: 'ctrl.cases',
+        templateUrl: 'view/cases/index.html'
       })
       .state('music', {
         url: '/music',

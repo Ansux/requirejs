@@ -1,13 +1,34 @@
 @import './mixin.scss';
 @import './side.scss';
+@import './cases.scss';
 
 body {
-  font-family: '微软雅黑'
+  font-family: '微软雅黑';
 }
 
 .wrap {
   margin-left: 255px;
   .navbar {
     border-radius: 0;
+    background-color: #eee;
+    .navbar-brand {
+      width: 250px;
+    }
+    .personal{
+      width: 60px;
+      .avator {
+        color: #666;
+        float: right;
+        line-height: 50px;
+        text-decoration: none;
+        .glyphicon-user {
+          font-size: 18px;
+        }
+      }
+    }
+  }
+  .container-view {
+    position: relative;
+    top: 60px;
   }
 }

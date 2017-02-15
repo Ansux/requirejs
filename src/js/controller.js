@@ -1,11 +1,22 @@
 'use strict'
 
-require(['modules/home/index', 'modules/blog/index', 'modules/music/index'], function (home, blog, music) {
+require(['modules/cases/index', 'modules/blog/index', 'modules/music/index'], function (cases, blog, music) {
   angular.module('ctrl', [])
-    .controller('ctrl.home', home)
+    .controller('ctrl', ['$scope', function ($scope) {
+      $scope.$on('CasesChange',
+        function (event, casesCount) {
+          $scope.$broadcast('CaseChangeFromParrent', casesCount)
+        })
+    }])
+    .controller('ctrl.cases', cases)
     .controller('ctrl.blog', blog.index)
     .controller('ctrl.blogDetail', blog.detail)
     .controller('ctrl.music', music)
+    .controller('ctrl.navbar', ['$scope', function ($scope) {
+      $scope.$on('CaseChangeFromParrent', function (event, casesCount) {
+        $scope.casesCount = casesCount
+      })
+    }])
     .controller('ctrl.side', ['$scope', function ($scope) {
       $scope.select = {
         source: [0],
@@ -38,7 +49,8 @@ require(['modules/home/index', 'modules/blog/index', 'modules/music/index'], fun
         checked: true
       }]
 
-      $scope.gender = [{
+      $scope.gender = [
+        {
           id: 1,
           name: '男'
         },
