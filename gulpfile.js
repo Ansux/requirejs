@@ -30,8 +30,9 @@ gulp.task('rjs', ['eslint'], function () {
     'baseUrl': './src',
     paths: {
       text: '../static/js/requirejs/text',
-      json: '../static/js/requirejs/json',
+      json: '../static/js/requirejs/json'
     },
+    shim: {},
     'removeCombined': true,
     'name': 'app',
     'out': './dist/js/app.js'
@@ -54,13 +55,12 @@ gulp.task('scss', function () {
 /**************** 静态资源处理 ************/
 // 打包库文件
 gulp.task('libJS', function () {
-  gulp.src(files.libs.js.ng)
-    .pipe(concat('libs.js'))
-    .pipe(gulp.dest('./dist/js/'))
-
-  gulp.src(files.libs.js.ie)
-    .pipe(concat('ie.js'))
-    .pipe(gulp.dest('./dist/js'))
+  var keys = Object.keys(files.libs.js)
+  for (var i = 0, len = keys.length; i < len; i++) {
+    gulp.src(files.libs.js[keys[i]])
+      .pipe(concat(keys[i] + '.js'))
+      .pipe(gulp.dest('./dist/js/'))
+  }
 
   gulp.src('static/js/requirejs/require.min.js')
     .pipe(gulp.dest('./dist/js/'))

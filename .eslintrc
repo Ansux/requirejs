@@ -38,6 +38,7 @@
     "define": true,
     "console": true,
     "document": true,
-    "module": true
+    "module": true,
+    "$": true
   }
 }

@@ -25,5 +25,25 @@ define([], function () {
         controller: 'ctrl.blogDetail',
         templateUrl: 'view/blog/detail.html'
       })
+      .state('setting', {
+        url: '/setting',
+        controller: 'ctrl.setting',
+        templateUrl: 'view/setting/index.html'
+      })
+      .state('setting.notice', {
+        url: '/notice',
+        controller: 'ctrl.settingNotice',
+        templateUrl: 'view/setting/notice.html'
+      })
+      .state('setting.account', {
+        url: '/account',
+        controller: 'ctrl.settingAccount',
+        templateUrl: 'view/setting/account.html'
+      })
+      .state('setting.other', {
+        url: '/other',
+        controller: 'ctrl.settingOther',
+        templateUrl: 'view/setting/other.html'
+      })
   }]
 })

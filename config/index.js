@@ -7,7 +7,8 @@ module.exports = {
   libs: {
     js: {
       ie: ['static/js/html5shiv.min.js', 'static/js/respond.min.js'],
-      ng: ['static/js/angular.min.js', 'static/js/angular-*.min.js']
+      ng: ['static/js/angular.min.js', 'static/js/angular-*.min.js'],
+      bs: ['static/js/jquery.min.js', 'static/js/bootstrap.min.js']
     },
     css: 'static/css/*.css'
   },

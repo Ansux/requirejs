@@ -41,3 +41,31 @@
     }
   }
 }
+
+.side-setting {
+  padding-top: 20px;
+  ul {
+    padding-left: 0;
+  }
+  li {
+    border-bottom: solid 1px #eee;
+    a {
+      display: block;
+      padding: 15px 25px;
+      font-size: 16px;
+      color: #999;
+      text-decoration: none;
+      &:hover {
+        color: #666;
+      }
+      &.active {
+        background-color: #fff;
+        color: #666;
+      }
+      i {
+        display: inline-block;
+        width: 22px;
+      }
+    }
+  }
+}
