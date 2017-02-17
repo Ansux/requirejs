@@ -10,11 +10,6 @@ define([], function () {
         controller: 'ctrl.cases',
         templateUrl: 'view/cases/index.html'
       })
-      .state('music', {
-        url: '/music',
-        controller: 'ctrl.music',
-        templateUrl: 'view/music/index.html'
-      })
       .state('blog', {
         url: '/blog',
         controller: 'ctrl.blog',

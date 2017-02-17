@@ -1,0 +1,44 @@
+.panel-notice {
+  .select {
+    display: inline-block;
+    .form-control {
+      display: inline-block;
+      width: 110px;
+      margin-left: 5px;
+    }
+  }
+}
+
+.panel-account {
+  .form-group{
+    padding-left: 30px;
+    label {
+      width: 80px;
+      text-align: right;
+      display: inline-block;
+      margin-right: 10px;
+    }
+    input {
+      display: inline-block;
+      width: 350px;
+    }
+  }
+}
+
+.panel-other {
+  padding: 20px;
+  .fieldset {
+    padding: 15px 15px 5px 15px;
+    border: solid 2px #eee;
+    margin-bottom: 40px;
+    .legend {
+      width: auto;
+      margin:0 0 0 20px;
+      padding: 0 10px;
+      border-bottom: none;
+      font-size: 15px;
+      font-weight: bold;
+      color: #999;
+    }
+  }
+}

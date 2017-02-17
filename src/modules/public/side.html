@@ -1,91 +1,86 @@
-<div class="side-case-filter" ng-if="currentState==='cases'">
-  <div class="section apply-org">
-    <fieldset>
-      <legend>申请机构</legend>
-      <div class="content">
-      </div>
-    </fieldset>
-  </div>
-  <!-- 申请机构 -->
-  <div class="section apply-time">
-    <fieldset>
-      <legend>申请时间</legend>
-      <div class="content">
-        <div class="row">
-          <div class="col-xs-5">
-            <input type="text" class="form-control" value="2016-10-10">
-          </div>
-          <div class="col-xs-2">-</div>
-          <div class="col-xs-5">
-            <input type="text" class="form-control" value="2016-10-10">
-          </div>
+<div class="side-case-filter nano" ng-if="currentState.state==='cases'">
+  <div class="nano-content">
+    <div class="section apply-org">
+      <fieldset>
+        <legend>申请机构</legend>
+        <div class="content">
         </div>
-      </div>
-    </fieldset>
-  </div>
-  <!-- 申请时间 -->
-  <div class="section filter">
-    <fieldset>
-      <legend>筛选</legend>
-      <div class="content">
-        <div class="form-group">
-          <label for="" class="control-label">病人来源：</label>
-          <div class="cbs">
-            <label class="checkbox-inline" ng-repeat="item in patientSource">
+      </fieldset>
+    </div>
+    <!-- 申请机构 -->
+    <div class="section apply-time">
+      <fieldset>
+        <legend>申请时间</legend>
+        <div class="content">
+          <input type="text" class="form-control time-select" value="2016-10-10">
+          <span>-</span>
+          <input type="text" class="form-control time-select" value="2016-10-10">
+        </div>
+      </fieldset>
+    </div>
+    <!-- 申请时间 -->
+    <div class="section filter">
+      <fieldset>
+        <legend>筛选</legend>
+        <div class="content">
+          <div class="form-group">
+            <label for="" class="control-label">病人来源：</label>
+            <div class="cbs">
+              <label class="checkbox-inline" ng-repeat="item in patientSource">
             <input type="checkbox" ng-checked="item.checked" ng-click="checkPatient(item)"> {{item.name}}
           </label>
+            </div>
           </div>
-        </div>
-        <div class="form-group">
-          <label for="" class="control-label">性别：</label>
-          <div class="cbs">
-            <label class="radio-inline" ng-repeat="item in gender">
+          <div class="form-group">
+            <label for="" class="control-label">性别：</label>
+            <div class="cbs">
+              <label class="radio-inline" ng-repeat="item in gender">
             <input type="radio" name="gender" ng-checked="item.id===select.gender" ng-click="checkGender(item)"> {{item.name}}
           </label>
+            </div>
           </div>
-        </div>
-        <div class="form-group">
-          <label for="" class="control-label">检查类别：</label>
-          <div class="cbs">
-            <select name="select_CheckTypes" class="form-control">
+          <div class="form-group">
+            <label for="" class="control-label">检查类别：</label>
+            <div class="cbs">
+              <select name="select_CheckTypes" class="form-control">
             <option value="0">全部</option>
             <option value="1">动态心电</option>
             <option value="2">动态血压</option>
           </select>
+            </div>
           </div>
-        </div>
-        <div class="form-group">
-          <label for="" class="control-label">诊断医生：</label>
-          <div class="cbs">
-            <select name="select_CheckTypes" class="form-control">
+          <div class="form-group">
+            <label for="" class="control-label">诊断医生：</label>
+            <div class="cbs">
+              <select name="select_CheckTypes" class="form-control">
             <option value="0">全部</option>
             <option value="1">苏医生</option>
             <option value="2">梁医生</option>
           </select>
+            </div>
           </div>
         </div>
-      </div>
-    </fieldset>
-  </div>
-  <!-- 筛选 -->
-  <div class="section search">
-    <fieldset>
-      <legend>搜索</legend>
-      <div class="content">
-        <input type="text" class="form-control" placeholder="输入关键字，按回车检索。">
-      </div>
-    </fieldset>
-  </div>
-  <!-- 搜索 -->
-  <div class="section search-btn">
-    <input type="button" class="btn btn-success" value="搜 索">
+      </fieldset>
+    </div>
+    <!-- 筛选 -->
+    <div class="section search">
+      <fieldset>
+        <legend>搜索</legend>
+        <div class="content">
+          <input type="text" class="form-control" placeholder="输入关键字，按回车检索。">
+        </div>
+      </fieldset>
+    </div>
+    <!-- 搜索 -->
+    <div class="section search-btn">
+      <input type="button" class="btn btn-success" value="搜 索">
+    </div>
   </div>
 </div>
-
-<div class="side-setting" ng-if="currentState==='setting'">
+<div class="side-setting" ng-if="currentState.state.slice(0, 7)==='setting'">
   <ul>
-    <li ui-sref-active="active"><a ui-sref="setting.notice"><i class="glyphicon glyphicon-bell"></i> 消息提醒设置</a></li>
-    <li ui-sref-active="active"><a ui-sref="setting.account"><i class="glyphicon glyphicon-lock"></i> 帐号管理</a></li>
-    <li ui-sref-active="active"><a ui-sref="setting.other"><i class="glyphicon glyphicon-cog"></i> 其他设置</a></li>
+    <li><a ui-sref-active="active" ui-sref="setting.notice"><i class="glyphicon glyphicon-bell"></i> 消息提醒设置</a></li>
+    <li><a ui-sref-active="active" ui-sref="setting.account"><i class="glyphicon glyphicon-lock"></i> 帐号管理</a></li>
+    <li><a ui-sref-active="active" ui-sref="setting.other"><i class="glyphicon glyphicon-cog"></i> 其他设置</a></li>
   </ul>
 </div>

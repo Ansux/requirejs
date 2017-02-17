@@ -10,7 +10,10 @@ define([], function () {
         fromState: fromState.name,
         fromParams: fromParams
       }
-      $rootScope.currentState = toState.name
+      $rootScope.currentState = {
+        state: toState.name,
+        params: toParams
+      }
     })
 
     $rootScope.state = {

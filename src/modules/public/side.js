@@ -1,37 +1,38 @@
 'use strict'
 
 define([], function () {
-  return ['$scope', function ($scope) {
+  return ['$scope', '$rootScope', function ($scope, $rootScope) {
     $scope.select = {
       source: [0],
       gender: 0
     }
 
-    $scope.patientSource = [{
-      id: 1,
-      name: '门诊',
-      checked: false
-    }, {
-      id: 2,
-      name: '住院',
-      checked: false
-    }, {
-      id: 3,
-      name: '体检',
-      checked: false
-    }, {
-      id: 4,
-      name: '急诊',
-      checked: false
-    }, {
-      id: 5,
-      name: '其他',
-      checked: false
-    }, {
-      id: 0,
-      name: '不限',
-      checked: true
-    }]
+    $scope.patientSource = [
+      {
+        id: 1,
+        name: '门诊',
+        checked: false
+      }, {
+        id: 2,
+        name: '住院',
+        checked: false
+      }, {
+        id: 3,
+        name: '体检',
+        checked: false
+      }, {
+        id: 4,
+        name: '急诊',
+        checked: false
+      }, {
+        id: 5,
+        name: '其他',
+        checked: false
+      }, {
+        id: 0,
+        name: '不限',
+        checked: true
+      }]
 
     $scope.gender = [
       {

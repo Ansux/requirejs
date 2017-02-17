@@ -1,7 +1,9 @@
 <div class="container-fluid">
-  <a class="navbar-brand"><span class="glyphicon glyphicon-th-large"></span> 病例中心</a>
+  <a class="navbar-brand"><span class="glyphicon glyphicon-cloud"></span> {{brandTitle}}</a>
   <ul class="nav navbar-nav">
-    <li data-id="home" ng-if="currentState==='cases'"><a ui-sref="home"><span class="glyphicon glyphicon-plus"></span> 新建病例</a>
+    <li data-id="home" ng-if="controller==='cases'"><a data-toggle="modal" data-target="#modal_case_new"><span class="glyphicon glyphicon-plus"></span> 新建病例</a>
+    </li>
+    <li data-id="home" ng-if="controller!=='cases'"><a ui-sref="cases({type: 'all'})"><span class="glyphicon glyphicon-chevron-left"></span> 返回病例中心</a>
     </li>
   </ul>
   <div class="personal dropdown pull-right">
@@ -16,7 +18,7 @@
       <li><a ui-sref="setting">用户设置</a></li>
     </ul>
   </div>
-  <ul class="nav navbar-nav pull-right" ng-if="currentState==='cases'">
+  <ul class="nav navbar-nav pull-right" ng-if="controller==='cases'">
     <li ui-sref-active="active"><a ui-sref="cases({type:'all'})">全部 ({{casesCount.all}})</a>
     </li>
     <li ui-sref-active="active"><a ui-sref="cases({type:'unCheck'})">未检查 ({{casesCount.unCheck}})</a>

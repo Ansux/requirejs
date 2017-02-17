@@ -1,5 +1,5 @@
 .cases-wraper {
-  margin-left: -15px;
+  margin-left: -5px;
   .item {
     position: relative;
     font-size: 0;
@@ -47,6 +47,44 @@
           color: #fff;
         }
       }
+    }
+  }
+}
+
+.modal-case-new {
+  .modal-body {
+    .row {
+      margin-bottom: 10px;
+    }
+    .control-label {
+      width: 60px;
+    }
+    .form-control {
+      display: inline-block;
+      width: 180px;
+      margin-left: 10px;
+      &.large {
+        width: 480px;
+      }
+      &.max-width {
+        width: 780px;
+      }
+      &.age {
+        width: 106px;
+      }
+      &.age-unit {
+        width: 60px;
+      }
+      &.xueya {
+        width: 50px;
+        &.no-margin {
+          margin-left: 0;
+        }
+      }
+    }
+    .radios,.checkboxs {
+      display: inline-block;
+      margin-left: 8px;
     }
   }
 }

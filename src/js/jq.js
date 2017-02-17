@@ -1,11 +1,19 @@
 'use strict'
 
-define(['jquery'], function ($) {
+define([], function () {
   setTimeout(function () {
-    console.log($('.dropdown-toggle'))
-    $('.dropdown-toggle').click(function () {
-      console.log(this)
-      $(this).next().toggle()
+    $('.nano').nanoScroller({
+      alwaysVisible: false
+    })
+    $('#bottom').click(function () {
+      $('.nano').nanoScroller({
+        scroll: 'bottom'
+      })
+    })
+    $('#top').click(function () {
+      $('.nano').nanoScroller({
+        scroll: 'top'
+      })
     })
   }, 1000)
 })

@@ -1,6 +1,6 @@
 'use strict'
 
-require(['modules/cases/index', 'modules/blog/index', 'modules/music/index', 'modules/public/navbar', 'modules/public/side', 'modules/setting/index'], function (cases, blog, music, navbar, side, setting) {
+require(['modules/cases/index', 'modules/cases/new', 'modules/public/navbar', 'modules/public/side', 'modules/setting/index'], function (cases, casesNew, navbar, side, setting) {
   angular.module('ctrl', [])
     .controller('ctrl', ['$scope', function ($scope) {
       $scope.$on('CasesChange',
@@ -9,13 +9,11 @@ require(['modules/cases/index', 'modules/blog/index', 'modules/music/index', 'mo
         })
     }])
     .controller('ctrl.cases', cases)
-    .controller('ctrl.blog', blog.index)
-    .controller('ctrl.blogDetail', blog.detail)
-    .controller('ctrl.music', music)
+    .controller('ctrl.casesNew', casesNew)
     .controller('ctrl.navbar', navbar)
     .controller('ctrl.side', side)
     .controller('ctrl.setting', setting.index)
     .controller('ctrl.settingNotice', setting.notice)
-    .controller('ctrl.settingAccount', setting.accout)
+    .controller('ctrl.settingAccount', setting.account)
     .controller('ctrl.settingOther', setting.other)
 })
