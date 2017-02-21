@@ -2,10 +2,7 @@
 
 define([], function () {
   return ['$scope', '$rootScope', '$http', function ($scope, $rootScope, $http) {
-    $scope.$on('CaseChangeFromParrent', function (event, casesCount) {
-      $scope.casesCount = casesCount
-    })
-
+    
     $scope.$watch('currentState', function (nv, ov) {
       if (!nv) return
       $scope.controller = (nv.state === 'cases') ? 'cases' : 'setting'

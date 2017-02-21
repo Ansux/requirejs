@@ -1,38 +1,56 @@
 <div class="cases-wraper">
-  <div loading is-loading='isLoading'></div>
-  <div confirm cf='confirm'></div>
-  <div class="item" ng-repeat="item in cases" ng-click="item.isOpen=!item.isOpen">
-    <div class="item-checked">
-      <input type="checkbox" ng-checked="item.isChecked" ng-model="item.isChecked">
+  <div class="section-nav clearfix">
+    <div class="actions">
+      <input class="check-all" type="checkbox" ng-checked="item.isChecked" ng-model="item.isChecked">
+      <div class="btns">
+        <button class="btn btn-danger btn-xs">删除</button>
+      </div>
     </div>
-    <div class="row-1">
-      <span>姓名: {{item.Name}}</span>
-      <span>年龄: {{item.Age}}{{item.AgeUnit}}</span>
-      <span>性别: {{item.Sex}}</span>
-      <span>申请号: {{item.AppliNO}}</span>
-      <span>检查项目: {{item.ExamGroupName}}</span>
+    <div class="filters">
     </div>
-    <div class="row-2">
-      <span>来访时间: {{item.ComeDate|limitTo:10}}</span>
-      <span>门诊号: {{item.PatientNum}}</span>
-      <span>申请科室: {{item.DepartName}}</span>
-      <span>诊断结果: {{item.diagnosResult}}</span>
-      <span>上传时间: {{item.UploadDate|limitTo:10}}</span>
+  </div>
+  <div class="cases-list" ng-show="cases">
+    <div class="row header">
+      <div class="col-sm-2">姓名</div>
+      <div class="col-sm-1">年龄</div>
+      <div class="col-sm-1">性别</div>
+      <div class="col-sm-2">申请号</div>
+      <div class="col-sm-1">检查项目</div>
+      <div class="col-sm-2">门诊号</div>
+      <div class="col-sm-1">申请科室</div>
+      <div class="col-sm-2">上传时间</div>
     </div>
-    <div class="row-3 link-btns" ng-class="{true: 'show', false: 'hide'}[item.isOpen]">
-      <a ng-click="showConfirm($event)">收藏</a>
-      <a>历史病历</a>
-      <a>查看报告</a>
-      <a>设备模式</a>
-      <a>查看报告</a>
-      <a>病人资料</a>
-      <a>诊断</a>
-    </div>
-    <div class="item-toggle">
-      <span class="glyphicon" ng-class="{false:'glyphicon-chevron-down', true: 'glyphicon-chevron-up'}[item.isOpen]"></span>
+    <div class="items">
+      <div class="item" ng-repeat="item in cases" ng-click="item.isOpen=!item.isOpen">
+        <div class="row">
+          <div class="col-sm-2">
+            <input class="check" type="checkbox" ng-checked="item.isChecked" ng-model="item.isChecked">
+            <span>{{item.Name}}</span></div>
+          <div class="col-sm-1">{{item.Age}}{{item.AgeUnit}}</div>
+          <div class="col-sm-1">{{item.Sex}}</div>
+          <div class="col-sm-2">{{item.AppliNO}}</div>
+          <div class="col-sm-1">{{item.ExamGroupName}}</div>
+          <div class="col-sm-2">{{item.PatientNum}}</div>
+          <div class="col-sm-1">{{item.DepartName}}</div>
+          <div class="col-sm-2">{{item.UploadDate|limitTo:10}}</div>
+        </div>
+        <div class="btns" ng-show="item.isOpen">
+          <a ng-click="showConfirm($event)">收藏</a>
+          <a>历史病历</a>
+          <a>查看报告</a>
+          <a>设备模式</a>
+          <a>查看报告</a>
+          <a>病人资料</a>
+          <a>诊断</a>
+        </div>
+        <div class="toggle-flag">
+          <span class="glyphicon" ng-class="{false:'glyphicon-menu-down', true: 'glyphicon-menu-up'}[item.isOpen]"></span>
+        </div>
+      </div>
     </div>
   </div>
   <div pager page='page' show-pager="cases||!isLoading"></div pager>
+  <div loading is-loading='isLoading'></div>
+  <div confirm cf='confirm'></div>
 </div>
 <div id="caseModal" ng-include="'view/cases/new.html'"></div>
-<div ui-view></div>

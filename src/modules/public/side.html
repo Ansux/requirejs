@@ -1,4 +1,4 @@
-<div class="side-case-filter nano" ng-if="currentState.state==='cases'">
+<div class="side-case-filter nano" ng-if="currentState.state==='casesss'">
   <div class="nano-content">
     <div class="section apply-org">
       <fieldset>
@@ -77,7 +77,21 @@
     </div>
   </div>
 </div>
-<div class="side-setting" ng-if="currentState.state.slice(0, 7)==='setting'">
+
+<div class="side-menu" ng-if="currentState.state==='cases'">
+  <ul>
+    <li><a ui-sref-active="active" ui-sref="cases({type:'all'})">全部 ({{casesCount.all}})</a>
+    </li>
+    <li><a ui-sref-active="active" ui-sref="cases({type:'unCheck'})">未检查 ({{casesCount.unCheck}})</a>
+    </li>
+    <li><a ui-sref-active="active" ui-sref="cases({type:'unDiagnose'})">未诊断 ({{casesCount.unDiagnose}})</a>
+    </li>
+    <li><a ui-sref-active="active" ui-sref="cases({type:'isDiagnose'})">已诊断 ({{casesCount.isDiagnose}})</a>
+    </li>
+  </ul>
+</div>
+
+<div class="side-menu" ng-if="currentState.state.slice(0, 7)==='setting'">
   <ul>
     <li><a ui-sref-active="active" ui-sref="setting.notice"><i class="glyphicon glyphicon-bell"></i> 消息提醒设置</a></li>
     <li><a ui-sref-active="active" ui-sref="setting.account"><i class="glyphicon glyphicon-lock"></i> 帐号管理</a></li>

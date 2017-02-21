@@ -2,6 +2,11 @@
 
 define([], function () {
   return ['$scope', '$rootScope', function ($scope, $rootScope) {
+
+    $scope.$on('CaseChangeFromParrent', function (event, casesCount) {
+      $scope.casesCount = casesCount
+    })
+
     $scope.select = {
       source: [0],
       gender: 0
