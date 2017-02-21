@@ -1,7 +1,7 @@
 <div class="container-fluid">
   <a class="navbar-brand"><span class="glyphicon glyphicon-cloud"></span> {{brandTitle}}</a>
   <ul class="nav navbar-nav">
-    <li data-id="home" ng-if="controller==='cases'"><a data-toggle="modal" data-target="#modal_case_new"><span class="glyphicon glyphicon-plus"></span> 新建病例</a>
+    <li data-id="home" ng-if="controller==='cases'" data-toggle="modal" data-target="#modal_case_new"><a><span class="glyphicon glyphicon-plus"></span> 新建病例</a>
     </li>
     <li data-id="home" ng-if="controller!=='cases'"><a ui-sref="cases({type: 'all'})"><span class="glyphicon glyphicon-chevron-left"></span> 返回病例中心</a>
     </li>

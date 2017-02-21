@@ -1,4 +1,6 @@
 <div class="cases-wraper">
+  <div loading is-loading='isLoading'></div>
+  <div confirm cf='confirm'></div>
   <div class="item" ng-repeat="item in cases" ng-click="item.isOpen=!item.isOpen">
     <div class="item-checked">
       <input type="checkbox" ng-checked="item.isChecked" ng-model="item.isChecked">
@@ -18,19 +20,19 @@
       <span>上传时间: {{item.UploadDate|limitTo:10}}</span>
     </div>
     <div class="row-3 link-btns" ng-class="{true: 'show', false: 'hide'}[item.isOpen]">
-      <a href="">收藏</a>
-      <a href="">历史病历</a>
-      <a href="">查看报告</a>
-      <a href="">设备模式</a>
-      <a href="">查看报告</a>
-      <a href="">病人资料</a>
-      <a href="">诊断</a>
+      <a ng-click="showConfirm($event)">收藏</a>
+      <a>历史病历</a>
+      <a>查看报告</a>
+      <a>设备模式</a>
+      <a>查看报告</a>
+      <a>病人资料</a>
+      <a>诊断</a>
     </div>
     <div class="item-toggle">
       <span class="glyphicon" ng-class="{false:'glyphicon-chevron-down', true: 'glyphicon-chevron-up'}[item.isOpen]"></span>
     </div>
   </div>
-  <div pager fetch='fetch' page='page'></div pager>
+  <div pager page='page' show-pager="cases||!isLoading"></div pager>
 </div>
-
-<div class="newCase-dialog" ng-if="true" ng-include="'view/cases/new.html'"></div>
+<div id="caseModal" ng-include="'view/cases/new.html'"></div>
+<div ui-view></div>

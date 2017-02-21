@@ -1,7 +1,7 @@
 'use strict'
 
 define([], function () {
-  return ['$scope', '$rootScope', function ($scope, $rootScope) {
+  return ['$scope', '$rootScope', '$http', function ($scope, $rootScope, $http) {
     $scope.$on('CaseChangeFromParrent', function (event, casesCount) {
       $scope.casesCount = casesCount
     })

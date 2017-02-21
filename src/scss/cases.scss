@@ -1,5 +1,6 @@
 .cases-wraper {
   margin-left: -5px;
+  min-height: 200px;
   .item {
     position: relative;
     font-size: 0;
@@ -12,6 +13,9 @@
       font-size: 14px;
       display: inline-block;
       width: 20%;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
     }
     .item-checked {
       position: absolute;

@@ -1,179 +1,180 @@
-<div class="modal fade modal-case-new" id="modal_case_new" tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel">
+<div ng-controller="ctrl.casesNew" class="modal fade modal-case-new" id="modal_case_new" tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel">
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <h4 class="modal-title" id="gridSystemModalLabel">新病例</h4>
       </div>
-      <div class="modal-body">
-        <section class="f1">
-          <div class="row">
-            <div class="col-sm-4">
-              <label class="control-label" for="">病人号</label>
-              <input type="text" class="form-control" name="" id="">
-            </div>
-            <div class="col-sm-4">
-              <label class="control-label" for="">姓名</label>
-              <input type="text" class="form-control" name="" id="">
-            </div>
-            <div class="col-sm-4">
-              <label class="control-label" for="">出生日期</label>
-              <input type="date" class="form-control" name="" id="">
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-sm-4">
-              <label class="control-label" for="">年龄</label>
-              <input type="text" class="form-control age" name="" id="">
-              <select class="form-control age-unit">
-                <option value="1">岁</option>
-                <option value="1">月</option>
-                <option value="1">周</option>
-                <option value="1">天</option>
-              </select>
-            </div>
-            <div class="col-sm-4">
-              <label class="control-label" for="">性别</label>
-              <div class="radios">
-                <label class="radio-inline">
-                  <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1"> 男
-                </label>
-                <label class="radio-inline">
-                  <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2"> 女
-                </label>
+      <form role="form" name="myForm" ng-submit="submitForm(myForm.$valid)" class="form-horizontal" novalidate>
+        <div class="modal-body">
+          <section class="f1">
+            <div class="row">
+              <div class="col-sm-4">
+                <label class="control-label" for="patientNO">病人号</label>
+                <input type="text" class="form-control" ng-model="form.patientNO" id="patientNO" required>
+              </div>
+              <div class="col-sm-4">
+                <label class="control-label" for="name">姓名</label>
+                <input type="text" class="form-control" ng-model="form.name" id="name">
+              </div>
+              <div class="col-sm-4">
+                <label class="control-label" for="birthday">出生日期</label>
+                <input type="date" class="form-control" ng-model="form.birthday" id="birthday">
               </div>
             </div>
-            <div class="col-sm-4">
-              <label class="control-label" for="">申请医生</label>
-              <select name="" id="" class="form-control">
-                <option value="">苏医生</option>
-                <option value="">李医生</option>
-                <option value="">覃医生</option>
+            <div class="row">
+              <div class="col-sm-4">
+                <label class="control-label" for="age">年龄</label>
+                <input type="text" class="form-control age" ng-model="form.age" id="age">
+                <select ng-model="form.ageUnit" class="form-control age-unit">
+                <option value="岁">岁</option>
+                <option value="月">月</option>
+                <option value="周">周</option>
+                <option value="天">天</option>
               </select>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-sm-4">
-              <label class="control-label" for="">申请号</label>
-              <input type="text" class="form-control" name="" id="">
-            </div>
-            <div class="col-sm-4">
-              <label class="control-label" for="">申请科室</label>
-              <select name="" id="" class="form-control">
-                <option value="">心电图室</option>
-                <option value="">动态血压</option>
+              </div>
+              <div class="col-sm-4">
+                <label class="control-label" for="sex">性别</label>
+                <div class="radios">
+                  <label class="radio-inline">
+                  <input type="radio" ng-model="form.sex" value="男"> 男
+                </label>
+                  <label class="radio-inline">
+                  <input type="radio" ng-model="form.sex"  value="女"> 女
+                </label>
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <label class="control-label" for="applyDor">申请医生</label>
+                <select ng-model="form.applyDor" id="applyDor" class="form-control">
+                <option value="苏医生">苏医生</option>
+                <option value="李医生">李医生</option>
+                <option value="覃医生">覃医生</option>
               </select>
+              </div>
             </div>
-            <div class="col-sm-4">
-              <label class="control-label" for="">病区</label>
-              <input type="date" class="form-control" name="" id="">
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-sm-4">
-              <label class="control-label" for="">病人来源</label>
-              <select name="" id="" class="form-control">
-                <option value="">门诊</option>
-                <option value="">住院</option>
-                <option value="">体检</option>
+            <div class="row">
+              <div class="col-sm-4">
+                <label class="control-label" for="applyNO">申请号</label>
+                <input type="text" class="form-control" ng-model="form.applyNO" id="applyNO">
+              </div>
+              <div class="col-sm-4">
+                <label class="control-label" for="applyDepartment">申请科室</label>
+                <select ng-model="form.applyDepartment" id="applyDepartment" class="form-control">
+                <option value="心电图室">心电图室</option>
+                <option value="动态血压">动态血压</option>
               </select>
+              </div>
+              <div class="col-sm-4">
+                <label class="control-label" for="ward">病区</label>
+                <input type="text" class="form-control" ng-model="form.ward" id="ward">
+              </div>
             </div>
-            <div class="col-sm-4">
-              <label class="control-label" for="">门诊号</label>
-              <input type="text" class="form-control" name="" id="">
-            </div>
-            <div class="col-sm-4">
-              <label class="control-label" for="">床号</label>
-              <input type="date" class="form-control" name="" id="">
-            </div>
-          </div>
-        </section>
-        <section class="f2">
-          <div class="row">
-            <div class="col-sm-4">
-              <label class="control-label" for="">检查类型</label>
-              <select name="" id="" class="form-control">
-                <option value="">动态血压</option>
-                <option value="">动态心电</option>
+            <div class="row">
+              <div class="col-sm-4">
+                <label class="control-label" for="source">病人来源</label>
+                <select ng-model="form.source" id="source" class="form-control">
+                <option value="门诊">门诊</option>
+                <option value="住院">住院</option>
+                <option value="体检">体检</option>
               </select>
+              </div>
+              <div class="col-sm-4">
+                <label class="control-label" for="visitId">门诊号</label>
+                <input type="text" class="form-control" ng-model="form.visitId" id="visitId">
+              </div>
+              <div class="col-sm-4">
+                <label class="control-label" for="bedNO">床号</label>
+                <input type="text" class="form-control" ng-model="form.bedNO" id="bedNO">
+              </div>
             </div>
-            <div class="col-sm-4">
-              <label class="control-label" for="">检查科室</label>
-              <select name="" id="" class="form-control">
-                <option value="">心电图室</option>
-                <option value="">动态心电</option>
+          </section>
+          <section class="f2">
+            <div class="row">
+              <div class="col-sm-4">
+                <label class="control-label" for="checkType">检查类型</label>
+                <select ng-model="form.checkType" id="checkType" class="form-control">
+                <option value="动态血压">动态血压</option>
+                <option value="动态心电">动态心电</option>
               </select>
+              </div>
+              <div class="col-sm-4">
+                <label class="control-label" for="checkDepartment">检查科室</label>
+                <select ng-model="form.checkDepartment" id="checkDepartment" class="form-control">
+                <option value="心电图室">心电图室</option>
+                <option value="动态心电">动态心电</option>
+              </select>
+              </div>
+              <div class="col-sm-4">
+                <label class="control-label" for="sp">血压</label>
+                <input type="text" class="form-control xueya" ng-model="form.bp.sp" id="sp">
+                <span>/</span>
+                <input type="text" class="form-control xueya no-margin" ng-model="form.bp.dp">
+                <span>(mm/Hg)</span>
+              </div>
             </div>
-            <div class="col-sm-4">
-              <label class="control-label" for="">血压</label>
-              <input type="text" class="form-control xueya" name="" id="">
-              <span>/</span>
-              <input type="text" class="form-control xueya no-margin" name="" id="">
-              <span>(mm/Hg)</span>
+            <div class="row">
+              <div class="col-sm-4">
+                <label class="control-label" for="height">身高</label>
+                <input type="text" class="form-control" ng-model="form.height" id="height">
+              </div>
+              <div class="col-sm-4">
+                <label class="control-label" for="weight">体重(KG)</label>
+                <input type="text" class="form-control" ng-model="form.weight" id="weight">
+              </div>
+              <div class="col-sm-4">
+                <label class="control-label" for="checkGoal">检查目的</label>
+                <input type="text" class="form-control" ng-model="form.checkGoal" id="checkGoal">
+              </div>
             </div>
-          </div>
-          <div class="row">
-            <div class="col-sm-4">
-              <label class="control-label" for="">身高</label>
-              <input type="text" class="form-control" name="" id="">
+            <div class="row">
+              <div class="col-sm-4">
+                <label class="control-label" for="pharmacy">用药</label>
+                <input type="text" class="form-control" ng-model="form.pharmacy" id="pharmacy">
+              </div>
+              <div class="col-sm-8">
+                <label class="control-label" for="medicalHistory">病史</label>
+                <input type="text" class="form-control large" ng-model="form.medicalHistory" id="medicalHistory">
+              </div>
             </div>
-            <div class="col-sm-4">
-              <label class="control-label" for="">体重(KG)</label>
-              <input type="text" class="form-control" name="" id="">
+            <div class="row">
+              <div class="col-sm-12">
+                <label class="control-label" for="doctorAdvice">医嘱</label>
+                <input type="text" class="form-control max-width" ng-model="form.doctorAdvice" id="doctorAdvice">
+              </div>
             </div>
-            <div class="col-sm-4">
-              <label class="control-label" for="">检查目的</label>
-              <input type="text" class="form-control" name="" id="">
+          </section>
+          <section class="f3">
+            <div class="row">
+              <div class="col-sm-4">
+                <label class="control-label" for="tel">联系电话</label>
+                <input type="text" class="form-control" ng-model="form.tel" id="tel">
+              </div>
+              <div class="col-sm-8">
+                <label class="control-label" for="addr">联系地址</label>
+                <input type="text" class="form-control large" ng-model="form.addr" id="addr">
+              </div>
             </div>
-          </div>
-          <div class="row">
-            <div class="col-sm-4">
-              <label class="control-label" for="">用药</label>
-              <input type="text" class="form-control" name="" id="">
+            <div class="row">
+              <div class="col-sm-4">
+                <label class="control-label" for="diagnoseDor">诊断医生</label>
+                <input type="text" class="form-control" ng-model="form.diagnoseDor" id="diagnoseDor">
+              </div>
+              <div class="col-sm-8">
+                <label class="control-label" for="">临床诊断</label>
+                <input type="text" class="form-control large" ng-model="form." id="">
+              </div>
             </div>
-            <div class="col-sm-8">
-              <label class="control-label" for="">病史</label>
-              <input type="text" class="form-control large" name="" id="">
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-sm-12">
-              <label class="control-label" for="">医嘱</label>
-              <input type="text" class="form-control max-width" name="" id="">
-            </div>
-          </div>
-        </section>
-        <section class="f3">
-          <div class="row">
-            <div class="col-sm-4">
-              <label class="control-label" for="">联系电话</label>
-              <input type="text" class="form-control" name="" id="">
-            </div>
-            <div class="col-sm-8">
-              <label class="control-label" for="">联系地址</label>
-              <input type="text" class="form-control large" name="" id="">
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-sm-4">
-              <label class="control-label" for="">诊断医生</label>
-              <input type="text" class="form-control" name="" id="">
-            </div>
-            <div class="col-sm-8">
-              <label class="control-label" for="">临床诊断</label>
-              <input type="text" class="form-control large" name="" id="">
-            </div>
-          </div>
-        </section>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-success">保存</button>
-        <button type="button" class="btn btn-primary">提取信息</button>
-      </div>
+          </section>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-success" ng-disabled="myForm.$invalid">保存</button>
+          <button type="button" class="btn btn-primary">提取信息</button>
+        </div>
+      </form>
     </div>
   </div>
 </div>
-
 <!--<script>
   $('#modal_case_new').modal()
 </script>-->

@@ -16,12 +16,15 @@
       legend {
         font-size: 14px;
         font-weight: 700;
-        color: #999;
+        color: #777;
         margin: 0 5px;
         padding: 0 5px;
         display: block;
         width: auto;
         border: none;
+      }
+      .control-label {
+        color: #777;
       }
     }
     .time-select {
